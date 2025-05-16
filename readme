@@ -1,1 +1,111 @@
-readme
+# AI Data Agent (Simplified)
+
+This is a simplified AI Data Agent application that allows users to ask SQL queries to a backend database and visualize the results in a table and a basic chart.
+
+## Overview
+
+The application consists of two main parts:
+
+* **Backend:** A Node.js server using Express.js that connects to a SQLite database (`sample.db`). It exposes an API endpoint (`/ask`) to receive SQL queries and return the results.
+* **Frontend:** A React application that provides a user interface to input SQL queries and displays the results in a tabular format and a basic bar chart.
+
+## Technologies Used
+
+* **Backend:**
+    * Node.js
+    * Express.js
+    * SQLite
+    * `sqlite3` (Node.js driver)
+    * `cors` (for handling Cross-Origin Resource Sharing)
+* **Frontend:**
+    * React
+    * `react-chartjs-2` (for charting)
+    * CSS
+
+## Setup and Installation
+
+Follow these steps to run the application locally:
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone [https://github.com/AKSHAYA0604/ai-chat.git](https://github.com/AKSHAYA0604/ai-chat.git)
+    cd ai-chat
+    ```
+
+2.  **Navigate to the backend directory and install dependencies:**
+
+    ```bash
+    cd backend
+    npm install
+    ```
+
+3.  **Create and populate the SQLite database:**
+
+    * Ensure you have a `sample.db` file in the `backend` directory.
+    * You can use a SQLite browser or the `sqlite3` command-line tool to create tables and insert data. For example:
+
+        ```sql
+        -- Create an employees table
+        CREATE TABLE employees (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            salary REAL
+        );
+
+        -- Insert some sample data
+        INSERT INTO employees (name, salary) VALUES ('Alice', 60000);
+        INSERT INTO employees (name, salary) VALUES ('Bob', 75000);
+        INSERT INTO employees (name, salary) VALUES ('Charlie', 65000);
+        ```
+
+4.  **Run the backend server:**
+
+    ```bash
+    node server.js
+    ```
+
+    The backend server should start and listen on port 5000.
+
+5.  **Open a new terminal and navigate to the frontend directory:**
+
+    ```bash
+    cd frontend
+    npm install
+    ```
+
+6.  **Run the frontend application:**
+
+    ```bash
+    npm start
+    ```
+
+    This will start the React development server and usually open the application in your web browser at `http://localhost:3000`.
+
+## Usage
+
+1.  In the web browser, you will see an input field where you can type SQL queries.
+2.  Enter a valid SQL `SELECT` query that targets the tables in your `sample.db` database.
+3.  Click the "Ask" button.
+4.  The application will display the results of the query in a table below the input.
+5.  If the data is suitable (e.g., two columns of data), a basic bar chart will also be displayed.
+
+## Examples Queries
+
+* `SELECT name, salary FROM employees;`
+* `SELECT COUNT(*) AS total_employees FROM employees;`
+* `SELECT department, AVG(salary) AS average_salary FROM employees GROUP BY department;` (assuming you have a 'department' column)
+
+## Further Improvements
+
+* More advanced charting options and chart types.
+* Error handling for invalid SQL queries.
+* User interface enhancements and styling.
+* Saving and managing query history.
+* Support for different database systems.
+
+## Author
+AKSHAYA 
+
+
+
